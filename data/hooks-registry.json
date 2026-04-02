@@ -1,0 +1,272 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-04-02",
+  "sources": [
+    {
+      "id": "claude-official",
+      "repo": "anthropics/claude-code",
+      "path": "hooks",
+      "type": "official",
+      "url": "https://github.com/anthropics/claude-code"
+    },
+    {
+      "id": "community",
+      "repo": "fix2015/load-hooks",
+      "path": "hooks",
+      "type": "community",
+      "url": "https://github.com/fix2015/load-hooks"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "auto-lint",
+      "description": "Automatically runs ESLint on files after they are modified by AI tools, catching style and quality issues immediately",
+      "tags": ["linting", "automation", "code-quality", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "auto-format",
+      "description": "Runs Prettier or your configured formatter on saved files after AI edits to ensure consistent code style",
+      "tags": ["linting", "automation", "code-quality", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "secret-scanner",
+      "description": "Scans code changes for hardcoded secrets, API keys, tokens, and credentials before they are committed",
+      "tags": ["security", "pre-tool-use", "git"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "test-runner",
+      "description": "Automatically runs relevant test suites after code changes to catch regressions immediately",
+      "tags": ["testing", "automation", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "commit-message-validator",
+      "description": "Validates commit messages against conventional commits format or custom patterns before committing",
+      "tags": ["git", "code-quality", "pre-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "branch-protection",
+      "description": "Prevents direct commits to protected branches like main or master, enforcing PR-based workflows",
+      "tags": ["git", "security", "pre-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "dependency-check",
+      "description": "Audits npm/yarn dependencies for known vulnerabilities after package changes using npm audit",
+      "tags": ["security", "dependency", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "build-verification",
+      "description": "Runs the project build after code changes to ensure nothing breaks compilation or bundling",
+      "tags": ["ci-cd", "automation", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "code-review-trigger",
+      "description": "Triggers automated code review checks including complexity analysis and best practice validation",
+      "tags": ["code-quality", "automation", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "doc-generator",
+      "description": "Automatically generates or updates JSDoc/TSDoc documentation comments when functions are modified",
+      "tags": ["documentation", "automation", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "changelog-updater",
+      "description": "Automatically appends entries to CHANGELOG.md based on commit messages and code changes",
+      "tags": ["documentation", "git", "automation", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "license-checker",
+      "description": "Validates that all dependencies use approved open-source licenses and flags incompatible ones",
+      "tags": ["security", "dependency", "pre-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "type-checker",
+      "description": "Runs TypeScript type checking after code modifications to catch type errors early",
+      "tags": ["code-quality", "automation", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "bundle-size-check",
+      "description": "Monitors and alerts when bundle size exceeds configured thresholds after dependency or code changes",
+      "tags": ["performance", "ci-cd", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "accessibility-audit",
+      "description": "Runs automated accessibility checks on UI components to ensure WCAG compliance",
+      "tags": ["accessibility", "code-quality", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "performance-budget",
+      "description": "Enforces performance budgets by checking metrics like load time, bundle size, and memory usage",
+      "tags": ["performance", "ci-cd", "pre-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "deploy-gate",
+      "description": "Validates deployment prerequisites including passing tests, clean builds, and approved reviews before deploy",
+      "tags": ["ci-cd", "automation", "pre-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "notification-slack",
+      "description": "Sends Slack notifications when the AI agent completes tasks, encounters errors, or needs attention",
+      "tags": ["automation", "notification"],
+      "source": "community",
+      "compatible": ["claude-code"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "Notification"
+    },
+    {
+      "name": "notification-discord",
+      "description": "Posts Discord messages when AI agent events occur, including task completion and error alerts",
+      "tags": ["automation", "notification"],
+      "source": "community",
+      "compatible": ["claude-code"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "Notification"
+    },
+    {
+      "name": "stop-summary",
+      "description": "Generates a summary of all changes made during an AI agent session when the agent stops",
+      "tags": ["documentation", "automation"],
+      "source": "community",
+      "compatible": ["claude-code"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "Stop"
+    },
+    {
+      "name": "file-guard",
+      "description": "Prevents AI tools from modifying protected files like .env, configs, or lock files without explicit approval",
+      "tags": ["security", "pre-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "todo-tracker",
+      "description": "Scans for new TODO/FIXME comments added by AI and logs them to a tracking file or issue tracker",
+      "tags": ["code-quality", "automation", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    },
+    {
+      "name": "complexity-guard",
+      "description": "Checks cyclomatic complexity of modified functions and warns when thresholds are exceeded",
+      "tags": ["code-quality", "pre-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "env-validator",
+      "description": "Validates that required environment variables are set and properly formatted before running tasks",
+      "tags": ["automation", "pre-tool-use", "security"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PreToolUse"
+    },
+    {
+      "name": "migration-check",
+      "description": "Detects database schema changes and reminds to create migration files when models are modified",
+      "tags": ["automation", "code-quality", "post-tool-use"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor", "codex"],
+      "raw_url": "",
+      "repo_url": "https://github.com/fix2015/load-hooks",
+      "event": "PostToolUse"
+    }
+  ]
+}
